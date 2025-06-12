@@ -1,0 +1,82 @@
+import streamlit as st
+import time
+
+st.set_page_config(page_title="Escape Game de Notre Amour", layout="centered")
+
+# Initialisation de l'état
+if "step" not in st.session_state:
+    st.session_state.step = 1
+
+# Fonction de message animé
+def show_animated_success(message, emoji="🎈"):
+    st.success(message)
+    st.markdown(f"<div style='text-align:center;font-size:30px;'>{emoji*10}</div>", unsafe_allow_html=True)
+    time.sleep(1)
+
+st.title("💘 Escape Game de Notre Amour")
+st.write("Chaque code validé te rapproche d'une belle surprise...")
+
+# Étapes
+steps = {
+    1: {
+        "riddle": "🔍 **Énigme :** Trouve le chiffre du jour le plus précieux de notre vie. Ni le mois, ni l’année… juste le **jour** !",
+        "answer": "18",
+        "success": "💖 Bravo mon amour ! Le 18... Le plus beau jour de notre vie.",
+        "next": "🛏️ **Prochaine étape :** Va dans notre chambre et fouille dans la table de nuit."
+    },
+    2: {
+        "riddle": "🗝️ **Énigme :** Tu as trouvé un code dans la table de nuit ? Entre-le ici pour débloquer la suite.",
+        "answer": "amour",
+        "success": "💌 Oui ! Ce mot résume tout... Notre amour.",
+        "next": "🚪 **Prochaine étape :** Va voir sous l’armoire du salon."
+    },
+    3: {
+        "riddle": "📦 **Énigme :** Tu as trouvé un nouveau code sous l’armoire ? C’est le moment de l’entrer.",
+        "answer": "souvenir",
+        "success": "📸 Tu te souviens... Ce mot est le lien entre toutes nos aventures.",
+        "next": "📖 **Prochaine étape :** Cherche dans l’album photo contenant les deux familles."
+    },
+    4: {
+        "riddle": "📷 **Énigme :** Tu as trouvé quelque chose dans l’album ? Entre le code ici !",
+        "answer": "famille",
+        "success": "👨‍👩‍👧‍👦 Famille... Le cœur de notre union.",
+        "next": "💬 **Prochaine étape :** Envoie un message WhatsApp avec ce code pour recevoir un message vocal."
+    },
+    5: {
+        "riddle": "🎧 **Énigme :** Tu as écouté le message vocal ? Quel est le mot de passe qu’il t’a soufflé ?",
+        "answer": "guitare",
+        "success": "🎶 Bien joué ! Le son de la guitare... comme dans ta vidéo.",
+        "next": "🎥 **Prochaine étape :** Trouve un code caché dans la guitare pour accéder à une vidéo surprise."
+    },
+    6: {
+        "riddle": "🎸 **Énigme finale :** Tu as trouvé le dernier code ? Entre-le ici pour conclure !",
+        "answer": "surprise",
+        "success": "🌟 Tu as tout réussi mon amour ! Prépare-toi pour une sortie magique ce soir...",
+        "next": "✨ Fin du jeu : Ce soir, une surprise t’attend... 😘"
+    }
+}
+
+# Affichage séquentiel par étape
+for step_num in range(1, st.session_state.step + 1):
+    step = steps[step_num]
+
+    st.markdown("---")
+    st.markdown(f"<div style='background-color:#ffe6f0;padding:20px;border-radius:10px;border:2px dashed #ff3399;'>"
+                f"<h4 style='color:#cc0066;'>{step['riddle']}</h4></div>", unsafe_allow_html=True)
+
+    code_input = st.text_input("💬 Entre le code ici", key=f"code_input_{step_num}")
+
+    if st.button("✅ Valider", key=f"validate_{step_num}"):
+        if code_input.strip().lower() == step["answer"]:
+            show_animated_success(step["success"], emoji="💞")
+            if st.session_state.step == step_num:
+                st.session_state.step += 1
+        else:
+            st.error("🥺 Essaie encore mon amour, ce n’est pas le bon code.")
+
+    if st.session_state.step > step_num:
+        st.markdown(
+            f"<div style='background-color:#fff0f5;padding:15px;margin-top:10px;"
+            f"border:2px dashed deeppink;border-radius:10px;'>"
+            f"<h5 style='color:#d63384;'>{step['next']}</h5></div>", unsafe_allow_html=True
+        )
