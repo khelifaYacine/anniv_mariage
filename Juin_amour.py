@@ -25,8 +25,8 @@ def show_success(message):
 # Étapes
 steps = {
     1: {"riddle": "🔍 **Trouve le chiffre du jour le plus précieux de notre vie**", "answer": "18", "success": "💖 Le **18**, notre jour inoubliable.", "next": "🛏️ **Va dans notre chambre et cherche dans la table de nuit**"},
-    2: {"riddle": "🗝️ **Code trouvé dans la table de nuit ?**", "answer": "amour", "success": "💌 **Notre amour**, résumé en un seul mot.", "next": "🚪 **Va voir sous l’armoire du salon**"},
-    3: {"riddle": "📦 **Code sous l’armoire ?**", "answer": "rose", "success": "📸 **Rose**, le lien entre toutes nos aventures.", "next": "📖 **Cherche dans l’album photo**"},
+    2: {"riddle": "🗝️ **Y'a un code dans la tables de nuit, trouve le ?**", "answer": "amour", "success": "💌 **Notre amour**, résumé en un seul mot.", "next": "🚪 **Va voir sous l’armoire du salon**"},
+    3: {"riddle": "📦 **Un autre Code sous l’armoire ?**", "answer": "rose", "success": "📸 **Rose**, le lien entre toutes nos aventures.", "next": "📖 **Cherche dans l’album photo**"},
     4: {
         "riddle": "📷 **Trouvé un code dans l’album les visages qu’on aime, les rires capturés, les instants figés mais jamais oubliés… Si tu cherches ce qui nous unit tous,  tape ce mot sur le site?**",
         "answer": "famille",
@@ -39,10 +39,10 @@ steps = {
         "answer": "guitare",
         "success": "🎶 **Le son de la guitare... comme dans ta vidéo.**",
         "next": "🎥 **Trouve un code caché dans la guitare**",
-        "video": "https://www.youtube.com/watch?v=YVSXQCwzvB4&list=PLQbwEnKmYnpAITY2vDVBs2szXBI3Iz2sD&index=6"
+        "video": "https://www.youtube.com/watch?v=eJhmeuuTRAs"
     },
     6: {
-        "riddle": "🎸 **Énigme finale : entre le dernier code**",
+        "riddle": "🎸 **Énigme finale : entre le dernier code que t'as trouvé dans la guitare**",
         "answer": "surprise",
         "success": "🌟 **Tout réussi ! Prépare-toi pour une surprise magique ce soir.**", 
         "next": "✨ **Fin du jeu : Une soirée inoubliable t'attend !**",
