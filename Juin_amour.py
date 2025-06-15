@@ -32,7 +32,7 @@ steps = {
         "answer": "famille",
         "success": "👨‍👩‍👧‍👦 **Famille, notre union éternelle.**",
         "next": "💬 **Envoie un message WhatsApp avec ce code**",
-        "image": "C:/Users/yacin/OneDrive/Streamlit 18 juin/anniv_mariage/DSC_3487.JPG"
+        "image": "DSC_3487.JPG"
     },
     5: {
         "riddle": "🎧 **Écris moi le dernier mot de passe retrouvé par WhatsApp ?**",
